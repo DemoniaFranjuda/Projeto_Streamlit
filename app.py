@@ -27,16 +27,20 @@ def main():
                 "Recém Nascido", "Cabra", "Mulher Virgem", "Dinheiro"
             ])
             btn_cadastrar = st.form_submit_button("Cadastrar Candidatos")
+        
+        if btn_cadastrar:
+            if not nome or not email or idade == 0:
+                st.error("Todos os campos devem ser preenchidos.")
+            else:
+                data_candidato = {
+                    "nome": nome,
+                    "email": email,
+                    "idade": idade,
+                    "telefone": telefone,
+                    "oferenda": oferenda
+                }
 
-            data_candidato = {
-                "nome": nome,
-                "email": email,
-                "idade": idade,
-                "telefone": telefone,
-                "oferenda": oferenda
-            }
-
-            st.write(data_candidato)
+                st.write(data_candidato)
 
     with abas[2]:
         st.title("Editar")
